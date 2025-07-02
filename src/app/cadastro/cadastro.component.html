@@ -36,8 +36,34 @@
                     <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
                         <div fxLayout="collumn" fxFlex="400px">
                             <mat-form-field class="full-width">
+                                <mat-label>UF: *</mat-label>
+                                <mat-select [(value)]="cliente.uf" (selectionChange)="carregarMunicipios($event)">
+                                    <mat-option *ngFor="let uf of estados" value="{{uf.sigla}}">
+                                        {{ uf.sigla }} - {{ uf.nome }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
+                        <div fxLayout="collumn" fxFlex="400px">
+                            <mat-form-field class="full-width">
+                                <mat-label>Municipio: *</mat-label>
+                                <mat-select [(value)]="cliente.municipio">
+                                    <mat-option *ngFor="let m of municipios" value="m.nome">
+                                        {{ m.nome }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
+                        <div fxLayout="collumn" fxFlex="400px">
+                            <mat-form-field class="full-width">
                                 <mat-label>Data de Nascimento: *</mat-label>
-                                <input type="date" [(ngModel)]="cliente.dataNascimento" name="dataNascimento" mask="00/00/0000" placeholder="Digite sua data de nascimento" matInput />
+                                <input type="date" [(ngModel)]="cliente.dataNascimento" name="dataNascimento" placeholder="Digite sua data de nascimento" matInput />
                             </mat-form-field>
                         </div>
                     </div>
